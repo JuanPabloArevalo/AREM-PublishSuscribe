@@ -3,8 +3,8 @@ package arem.proyecto.publishsuscribe;
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;
 import javax.jms.JMSException;
-import javax.jms.Message;
-import javax.jms.MessageConsumer;
+//import javax.jms.Message;
+//import javax.jms.MessageConsumer;
 import javax.jms.MessageProducer;
 import javax.jms.Session;
 import javax.jms.TextMessage;
@@ -12,12 +12,12 @@ import javax.jms.Topic;
 
 import org.apache.activemq.ActiveMQConnection;
 import org.apache.activemq.ActiveMQConnectionFactory;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+//import org.slf4j.Logger;
+//import org.slf4j.LoggerFactory;
 
 public class Publish {
     
-    private static final Logger LOGGER = LoggerFactory.getLogger(Publish.class);
+//    private static final Logger LOGGER = LoggerFactory.getLogger(Publish.class);
     private String clientId;
     private Connection connection;
     private Session session;
@@ -27,7 +27,7 @@ public class Publish {
     public void create(String clientId, String topicName) throws JMSException {
         this.clientId = clientId;
         // create a Connection Factory
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://54.186.68.167:61616?jms.useAsyncSend=true");
         // create a Connection
         connection = connectionFactory.createConnection();
         connection.setClientID(clientId);

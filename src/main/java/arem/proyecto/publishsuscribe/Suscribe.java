@@ -37,7 +37,7 @@ public class Suscribe {
     public void create(String clientId, String topicName) throws JMSException {
         this.clientId = clientId;
         // create a Connection Factory
-        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(ActiveMQConnection.DEFAULT_BROKER_URL);
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory("tcp://54.186.68.167:61616?jms.useAsyncSend=true");
         // create a Connection
         connection = connectionFactory.createConnection();
         connection.setClientID(clientId);
